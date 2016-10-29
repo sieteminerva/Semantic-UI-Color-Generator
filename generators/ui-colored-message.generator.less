@@ -1,0 +1,52 @@
+.GENERATE-COLORED-MESSAGE(@colorName, @colorValue) {
+
+  @prefix             : .ui;
+  @colorClassName     : ~".@{colorName}";
+  @elementName        : .message;
+  @childElementName   : .header;
+
+  @className          : ~"@{prefix}@{colorClassName}@{elementName}";
+  
+  @white              : #FFF;
+  @textColor          : darken(@colorValue, 15);
+  @backgroundColor    : lighten(@colorValue, 5);
+  @headerColor        : darken(@colorValue, 5);
+  @borderColor        : @colorValue;
+  @borderWidth        : 1px;
+  @shadowShadow       : 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  @boxShadow          : 0px 0px 0px @borderWidth @colorValue inset, @shadowShadow;
+
+  @Comment            : ~"/*----------------------------------------------
+  ------ Specimens of - @{colorName} - Message ------" ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+  @{Comment} 
+  @{CommentBreak}
+
+  
+  @{className} {
+    background-color: @backgroundColor;
+    color: @textColor;
+    box-shadow: @boxShadow;
+  }
+  @{className} @{childElementName} {
+    color: @headerColor;
+  }
+
+}
+
+
+// .GENERATE-COLORED-MESSAGE(red, @red);
+// .GENERATE-COLORED-MESSAGE(orange, @orange);
+// .GENERATE-COLORED-MESSAGE(yellow, @yellow);
+// .GENERATE-COLORED-MESSAGE(olive, @olive);
+// .GENERATE-COLORED-MESSAGE(green, @green);
+// .GENERATE-COLORED-MESSAGE(teal, @teal);
+// .GENERATE-COLORED-MESSAGE(blue, @blue);
+// .GENERATE-COLORED-MESSAGE(violet, @violet);
+// .GENERATE-COLORED-MESSAGE(purple, @purple);
+// .GENERATE-COLORED-MESSAGE(pink, @pink);
+// .GENERATE-COLORED-MESSAGE(black, @black); 
+

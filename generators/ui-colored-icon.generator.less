@@ -1,0 +1,57 @@
+.GENERATE-COLORED-ICON(@colorName, @colorValue) {
+
+  @prefix             : .ui;
+  @inverted           : .inverted;
+  @bordered           : .bordered;
+  @circular           : .circular;
+  @colorClassName     : ~".@{colorName}";
+  @elementName        : .icon;
+
+  @className          : ~"@{colorClassName}@{elementName}";
+  @classNameInverted  : ~"@{inverted}@{colorClassName}@{elementName}";
+  @classNameBordered  : ~"@{bordered}@{colorClassName}@{elementName}";
+  @classNameCircular  : ~"@{circular}@{colorClassName}@{elementName}";
+
+  @white              : #FFF;
+  @lightColor         : lighten(@colorValue, 5);
+  
+  @Comment            : ~"/*----------------------------------------------
+  -------- Specimens of - @{colorName} - Icon -------" ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+
+
+  @{Comment} 
+  @{CommentBreak}
+
+  /* Red */
+  i@{className} {
+    color: @colorValue !important;
+  }
+  i@{classNameInverted} {
+    color: @lightColor !important;
+  }
+  i@{classNameBordered},
+  i@{classNameCircular} {
+    background-color: @colorValue !important;
+    color: @white !important;
+  }
+
+}
+
+
+// .GENERATE-COLORED-ICON(black, @black);
+// .GENERATE-COLORED-ICON(grey, @grey);
+// .GENERATE-COLORED-ICON(brown, @brown);
+// .GENERATE-COLORED-ICON(blue, @blue);
+// .GENERATE-COLORED-ICON(green, @green);
+// .GENERATE-COLORED-ICON(orange, @orange);
+// .GENERATE-COLORED-ICON(pink, @pink);
+// .GENERATE-COLORED-ICON(violet, @violet);
+// .GENERATE-COLORED-ICON(purple, @purple); 
+// .GENERATE-COLORED-ICON(red, @red); 
+// .GENERATE-COLORED-ICON(teal, @teal); 
+// .GENERATE-COLORED-ICON(olive, @olive); 
+// .GENERATE-COLORED-ICON(yellow, @yellow);  

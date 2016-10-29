@@ -1,0 +1,72 @@
+.GENERATE-COLORED-CARD(@colorName, @colorValue) {
+
+  @prefix                     : .ui;
+  @inverted                   : .inverted;
+  @colorClassName             : ~".@{colorName}";
+  @elementName                : .card;
+  @elementNameGroup           : .cards;
+
+  @className                  : ~"@{prefix}@{colorClassName}@{elementName}";
+  @classNameGroup             : ~"@{prefix}@{colorClassName}@{elementNameGroup}";
+
+  @hoverStateColor            : saturate(darken(@colorValue, 5), 10, relative);
+  @white: #FFF;
+  @textColor                  : @white;
+  
+  
+  // from Card config var
+  @border                     : none;
+  @solidBorderColor           : #D4D4D5;
+  @solidSelectedBorderColor   : #BCBDBD;
+  @borderShadow               : 0px 0px 0px @borderWidth @solidBorderColor;
+  @linkHoverBorder            : @border;
+  @linkHoverBackground        : @white;
+  @linkHoverZIndex            : 5;
+  @linkHoverRaiseDistance     : 3px;
+  @linkHoverTransform         : translateY(-@linkHoverRaiseDistance);
+  @shadowHoverBoxShadow       : 0px @shadowDistance @linkHoverRaiseDistance 0px @solidSelectedBorderColor;
+  @linkHoverBoxShadow         : @shadowHoverBoxShadow, @borderShadow;
+  @borderWidth                : 1px;
+  @coloredShadowDistance      : 2px;
+  @shadowDistance             : 1px;
+  @shadowBoxShadow            : 0px @shadowDistance 3px 0px @solidBorderColor;
+
+  @Comment            : ~"/*----------------------------------------------
+  ------- Specimens of - @{colorName} - Card --------" ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+
+
+  @{Comment} 
+  @{CommentBreak}
+  
+  @{classNameGroup} > @{elementName},
+  @{prefix}@{elementNameGroup} > @{colorClassName}@{elementName},
+  @{className} {
+    box-shadow:
+      @borderShadow, 0px @coloredShadowDistance 0px 0px @colorValue, @shadowBoxShadow
+    ;
+  }
+  @{classNameGroup} > @{elementName}:hover,
+  @{prefix}@{elementNameGroup} > @{colorClassName}@{elementName}:hover,
+  @{className}:hover {
+    box-shadow: @borderShadow, 0px @coloredShadowDistance 0px 0px @hoverStateColor, @shadowHoverBoxShadow;
+  }
+}
+
+
+//.GENERATE-COLORED-CARD(black, #000);
+// .GENERATE-COLORED-CARD(grey, @grey);
+// .GENERATE-COLORED-CARD(brown, @brown);
+// .GENERATE-COLORED-CARD(blue, @blue);
+// .GENERATE-COLORED-CARD(green, @green);
+// .GENERATE-COLORED-CARD(orange, @orange);
+// .GENERATE-COLORED-CARD(pink, @pink);
+// .GENERATE-COLORED-CARD(violet, @violet);
+// .GENERATE-COLORED-CARD(purple, @purple); 
+// .GENERATE-COLORED-CARD(red, @red); 
+// .GENERATE-COLORED-CARD(teal, @teal); 
+// .GENERATE-COLORED-CARD(olive, @olive); 
+// .GENERATE-COLORED-CARD(yellow, @yellow); 

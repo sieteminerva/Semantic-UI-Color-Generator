@@ -1,0 +1,45 @@
+
+
+.GENERATE-COLORED-SEGMENT(@colorName, @colorValue){
+  @prefix             : .ui;
+  @inverted           : .inverted;
+  @colorClassName     : ~".@{colorName}";
+  @elementName        : .segment;
+
+  @className          : ~"@{prefix}@{colorClassName}@{elementName}";
+  @classInvertedName  : ~"@{prefix}@{inverted}@{colorClassName}@{elementName}";
+  @coloredBorderSize  : 2px;
+  
+  @Comment            : ~"/*----------------------------------------------
+  ------ Specimens of - @{colorName} - Segment ------" ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+
+  @{Comment} 
+  @{CommentBreak}
+
+
+  @{className}:not(@{inverted}){
+    border-top: @coloredBorderSize solid @colorValue;
+  }
+  @{classInvertedName}{
+    background-color: @colorValue !important;
+    color: @white !important;
+  }
+}
+
+ 
+// .GENERATE-COLORED-SEGMENT(red, @red);
+// .GENERATE-COLORED-SEGMENT(orange, @orange);
+// .GENERATE-COLORED-SEGMENT(yellow, @yellow);
+// .GENERATE-COLORED-SEGMENT(olive, @olive);
+// .GENERATE-COLORED-SEGMENT(green, @green);
+// .GENERATE-COLORED-SEGMENT(teal, @teal);
+// .GENERATE-COLORED-SEGMENT(blue, @blue);
+// .GENERATE-COLORED-SEGMENT(violet, @violet);
+// .GENERATE-COLORED-SEGMENT(purple, @purple);
+// .GENERATE-COLORED-SEGMENT(pink, @pink);
+// .GENERATE-COLORED-SEGMENT(black, @black); 
+
