@@ -22,7 +22,7 @@ Generating your new color class for semantic-ui components **_effort-less!_**
 3. Basic knowledge of [semantic-ui](http://semantic-ui.com)
 
 ##### Starting Up
-1. [Clone][cloneRepo] or [download][downloadZip] the source code
+1. `$git clone https://github.com/sieteminerva/Semantic-UI-Color-Generator.git` or [download][downloadZip] the source code
 2. Define color and which component you want to be colored.
 3. Compile it, and include [semantic.color.css][colorcss] to your _index.html_.
 
@@ -117,7 +117,7 @@ Done for the intro, now get straight to the **Interesting part**
 basically i just **_extract_** the original css **_selector_** for every components into a single component generator, i also took and redifining existing **_global variables_** into **_local variables_** specific for every components, so you can call it like that. global variable will still work here if you want it, just _import_ them!
 
 **Is it Customizable?** _No!! i'm kidding.._ Of course **it is!** find it at [/generators][generatorFolder] folder. 
-let say you open the [ui-colored-menu.generator.less][menuGenerator], take a look the code. every **variable** will be start with [@](http://lesscss.org/features/#variables-feature), customize it meet to your need! if you use this **original folder structure** this generator will **compile** your code to **[semantic.color.css][colorcss]**, and **use** **[semantic.color.less][colorless]** to define what color and component you want to generate. 
+let say you open the [ui-colored-menu.generator.less][menuGenerator], take a look the code. every **variable** will be start with [@](http://lesscss.org/features/#variables-feature), customize it meet to your need! if you use this **original folder structure**, generator will **compile** your code to **[semantic.color.css][colorcss]**, and **use** **[semantic.color.less][colorless]** to define what color and component you want to generate. 
 if you **_look closer_** i also make a **variable for classes**, then i call it back using **interpolation syntax**. not only for coloring, **_with this recipe i think it will open possibilities for translating classes or other tweaks._**
 
 --------
@@ -163,11 +163,10 @@ if you **_look closer_** i also make a **variable for classes**, then i call it 
   ```
   > i'll fix this later, as soon as i have time. or you want to help? just let me know
 
-[colorcss]: colorcss
-[colorless]: colorless
-[menuGenerator]: menu
+[colorcss]: ./semantic.color.css
+[colorless]: ./semantic.color.less
+[menuGenerator]: ./generators/ui-colored-menu.generator.less
 [demo]: ./showcase/assets/images/generator_color.gif
-[generatorFolder]: generatorFolder/generators
-[demoSite]: demosite
-[downloadZip]: downloadUrl
-[cloneRepo]: repoUrl
+[generatorFolder]: ./generators/
+[demoSite]: https://sieteminerva.github.io/Semantic-UI-Color-Generator/
+[downloadZip]: https://github.com/sieteminerva/Semantic-UI-Color-Generator/archive/master.zip
