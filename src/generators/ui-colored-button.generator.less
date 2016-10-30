@@ -1,0 +1,212 @@
+.GENERATE-COLORED-BUTTON(@colorName, @colorValue) {
+
+  @prefix                     : .ui;
+  @inverted                   : .inverted;
+  @basic                      : .basic;
+  @active                     : .active;
+  @colorClassName             : ~".@{colorName}";
+  @elementName                : .button;
+  @elementNameGroup           : .buttons;
+
+  @className                  : ~"@{prefix}@{colorClassName}@{elementName}";
+  @classNameGroup             : ~"@{prefix}@{colorClassName}@{elementNameGroup}";
+  @classNameBasic             : ~"@{prefix}@{basic}@{colorClassName}@{elementName}";
+  @classNameGroupBasic        : ~"@{prefix}@{basic}@{colorClassName}@{elementNameGroup}";
+  @classNameInverted          : ~"@{prefix}@{inverted}@{colorClassName}@{elementName}";
+  @classNameGroupInverted     : ~"@{prefix}@{inverted}@{colorClassName}@{elementNameGroup}";
+  @classNameInvertedBasic     : ~"@{prefix}@{inverted}@{colorClassName}@{basic}@{elementName}";
+  @classNameGroupInvertedBasic: ~"@{prefix}@{inverted}@{colorClassName}@{basic}@{elementNameGroup}";
+
+  @hoverStateColor            : saturate(darken(@colorValue, 5), 10, relative);
+  @focusStateColor            : saturate(darken(@colorValue, 8), 20, relative);
+  @downStateColor             : darken(@colorValue, 10);
+  @activeStateColor           : saturate(darken(@colorValue, 5), 15, relative);
+
+  @lightColorValue            : fade(@colorValue, 10);
+  @hoverStateColorLight       : saturate(darken(@lightColorValue, 5), 10, relative);
+  @focusStateColorLight       : saturate(darken(@lightColorValue, 8), 20, relative);
+  @downStateColorLight        : darken(@lightColorValue, 10);
+  @activeStateColorLight      : saturate(darken(@lightColorValue, 5), 15, relative);
+  
+  @white                      : #FFF;
+  @textColorTransparent       : rgba(0, 0, 0, 0.6);
+  @textColor                  : @white;
+  @textShadow                 : none;
+  @coloredBackgroundImage     : none;
+  @shadowDistance             : 0em;
+  @borderColor                : fade(@lightColorValue, 15);
+  @coloredBoxShadow           : 0px -@shadowDistance 0px 0px @borderColor inset;
+  @basicBorderSize            : 1px;
+  @basicColoredBorderSize     : 1px;
+  @solidBorderColor           : #D4D4D5;
+  @invertedBorderSize         : 2px;
+  @invertedTextColor          : @white;
+  @basicInvertedBoxShadow     : 0px 0px 0px @invertedBorderSize rgba(255, 255, 255, 0.5) inset;
+
+  @Comment            : ~"/*----------------------------------------------
+  ------ Specimens of - @{colorName} - Button" ------- ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+
+
+  @{Comment} 
+  @{CommentBreak}
+  
+  @{classNameGroup} @{elementName},
+  @{className} {
+    background-color: @colorValue;
+    color: @textColor;
+    text-shadow: @textShadow;
+    background-image: @coloredBackgroundImage;
+  }
+  @{className} {
+    box-shadow: @coloredBoxShadow;
+  }
+  @{classNameGroup} @{elementName}:hover,
+  @{className}:hover {
+    background-color: @hoverStateColor;
+    color: @textColor;
+    text-shadow: @textShadow;
+  }
+  @{classNameGroup} @{elementName}:focus,
+  @{className}:focus {
+    background-color: @focusStateColor;
+    color: @textColor;
+    text-shadow: @textShadow;
+  }
+  @{classNameGroup} @{elementName}:active,
+  @{className}:active {
+    background-color: @downStateColor;
+    color: @textColor;
+    text-shadow: @textShadow;
+  }
+  @{classNameGroup} @{active}@{elementName},
+  @{classNameGroup} @{active}@{elementName}:active,
+  @{className}@{active},
+  @{className} @{active}@{elementName}:active {
+    background-color: @activeStateColor;
+    color: @textColor;
+    text-shadow: @textShadow;
+  }
+
+  /* Basic */
+  @{classNameGroupBasic} @{elementName},
+  @{classNameBasic} {
+    box-shadow: 0px 0px 0px @basicBorderSize @colorValue inset !important;
+    color: @colorValue !important;
+  }
+  @{classNameGroupBasic} @{elementName}:hover,
+  @{classNameBasic}@{elementName}:hover {
+    background: transparent !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @hoverStateColor inset !important;
+    color: @hoverStateColor !important;
+  }
+  @{classNameGroupBasic} @{elementName}:focus,
+  @{classNameBasic}@{elementName}:focus {
+    background: transparent !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @focusStateColor inset !important;
+    color: @hoverStateColor !important;
+  }
+  @{classNameGroupBasic} @{active}@{elementName},
+  @{classNameBasic}@{elementName}@{active} {
+    background: transparent !important;
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @activeStateColor inset !important;
+    color: @downStateColor !important;
+  }
+  @{classNameGroupBasic} @{elementName}:active,
+  @{classNameBasic}@{elementName}:active {
+    box-shadow: 0px 0px 0px @basicColoredBorderSize @downStateColor inset !important;
+    color: @downStateColor !important;
+  }
+  @{prefix}@{elementNameGroup}:not(.vertical) > @{basic}@{colorClassName}@{elementName}:not(:first-child) {
+    margin-left: -@basicColoredBorderSize;
+  }
+
+  /* Inverted */
+  @{classNameGroupInverted} @{elementName},
+  @{classNameInverted} {
+    background-color: transparent;
+    box-shadow: 0px 0px 0px @invertedBorderSize @lightColorValue inset !important;
+    color: @lightColorValue !important;
+  }
+  @{classNameGroupInverted} @{elementName}:hover,
+  @{classNameInverted}:hover,
+  @{classNameGroupInverted} @{elementName}:focus,
+  @{classNameInverted}:focus,
+  @{classNameGroupInverted} @{elementName}.active,
+  @{classNameInverted}.active,
+  @{classNameGroupInverted} @{elementName}:active,
+  @{classNameInverted}:active {
+    box-shadow: none !important;
+    color: @textColor !important;
+  }
+  @{classNameGroupInverted} @{elementName}:hover,
+  @{classNameInverted}:hover {
+    background-color: @hoverStateColorLight;
+  }
+  @{classNameGroupInverted} @{elementName}:focus,
+  @{classNameInverted}:focus {
+    background-color: @focusStateColorLight;
+  }
+  @{classNameGroupInverted} @{active}@{elementName},
+  @{classNameInverted}@{active} {
+    background-color: @activeStateColorLight;
+  }
+  @{classNameGroupInverted} @{elementName}:active,
+  @{classNameInverted}:active {
+    background-color: @downStateColorLight;
+  }
+
+  /* Inverted Basic */
+  @{classNameGroupInvertedBasic} @{elementName},
+  @{classNameGroupInverted} @{basic}@{elementName},
+  @{classNameInvertedBasic} {
+    background-color: transparent;
+    box-shadow: @basicInvertedBoxShadow !important;
+    color: @white !important;
+  }
+
+  @{classNameGroupInvertedBasic} @{elementName}:hover,
+  @{classNameGroupInverted} @{basic}@{elementName}:hover,
+  @{classNameInvertedBasic}:hover {
+    box-shadow: 0px 0px 0px @invertedBorderSize @hoverStateColorLight inset !important;
+    color: @lightColorValue !important;
+  }
+  @{classNameGroupInvertedBasic} @{elementName}:focus,
+  @{classNameGroupInvertedBasic} @{elementName}:focus,
+  @{classNameInvertedBasic}:focus {
+    box-shadow: 0px 0px 0px @invertedBorderSize @focusStateColorLight inset !important;
+    color: @lightColorValue !important;
+  }
+  @{classNameGroupInvertedBasic} @{active}@{elementName},
+  @{classNameGroupInverted} @{basic}@{active}@{elementName},
+  @{classNameInvertedBasic}.active {
+    box-shadow: 0px 0px 0px @invertedBorderSize @activeStateColorLight inset !important;
+    color: @lightColorValue !important;
+  }
+  @{classNameGroupInvertedBasic} @{elementName}:active,
+  @{classNameGroupInverted} @{basic}@{elementName}:active,
+  @{classNameInvertedBasic}:active {
+    box-shadow: 0px 0px 0px @invertedBorderSize @downStateColorLight inset !important;
+    color: @lightColorValue !important;
+  }
+
+}
+
+
+// .GENERATE-COLORED-BUTTON(violet, @lightViolet); 
+// .GENERATE-COLORED-BUTTON(black, @lightViolet);
+// .GENERATE-COLORED-BUTTON(grey, @lightViolet);
+// .GENERATE-COLORED-BUTTON(brown, @lightViolet);
+// .GENERATE-COLORED-BUTTON(blue, @lightViolet);
+// .GENERATE-COLORED-BUTTON(green, @lightViolet);
+// .GENERATE-COLORED-BUTTON(orange, @lightViolet);
+// .GENERATE-COLORED-BUTTON(pink, @lightViolet);
+// .GENERATE-COLORED-BUTTON(violet, @lightViolet);
+// .GENERATE-COLORED-BUTTON(purple, @lightViolet); 
+// .GENERATE-COLORED-BUTTON(red, @lightViolet); 
+// .GENERATE-COLORED-BUTTON(teal, @lightViolet); 
+// .GENERATE-COLORED-BUTTON(olive, @lightViolet); 
+// .GENERATE-COLORED-BUTTON(yellow, @lightViolet);

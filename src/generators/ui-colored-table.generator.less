@@ -1,0 +1,51 @@
+.GENERATE-COLORED-TABLE(@colorName, @colorValue) {
+
+  @prefix             : .ui;
+  @inverted           : .inverted;
+  @colorClassName     : ~".@{colorName}";
+  @elementName        : .table;
+
+  @className          : ~"@{prefix}@{colorClassName}@{elementName}";
+  @classNameInverted  : ~"@{prefix}@{inverted}@{colorClassName}@{elementName}";
+
+  @coloredBorderSize  : 0.2em;
+  @white              : #FFF;
+  @hoverTextColor     : @white;
+
+  @Comment            : ~"/*----------------------------------------------
+  ------- Specimens of - @{colorName} - Table -------" ;
+  @CommentBreak       : ~"
+  ----------------------------------------------*/
+
+";
+
+  @{Comment} 
+  @{CommentBreak}
+
+  /* Colored */
+  @{className} {
+    border-top: @coloredBorderSize solid @colorValue;
+  }
+
+  /* Inverted */
+  @{classNameInverted} {
+    background-color: @colorValue !important;
+    color: @white !important;
+  }
+
+}
+
+
+// .GENERATE-COLORED-TABLE(red, @red);
+// .GENERATE-COLORED-TABLE(orange, @orange);
+// .GENERATE-COLORED-TABLE(yellow, @yellow);
+// .GENERATE-COLORED-TABLE(olive, @olive);
+// .GENERATE-COLORED-TABLE(green, @green);
+// .GENERATE-COLORED-TABLE(teal, @teal);
+// .GENERATE-COLORED-TABLE(blue, @blue);
+// .GENERATE-COLORED-TABLE(violet, @violet);
+// .GENERATE-COLORED-TABLE(purple, @purple);
+// .GENERATE-COLORED-TABLE(pink, @pink);
+// .GENERATE-COLORED-TABLE(black, @black); 
+
+
