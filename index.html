@@ -11,8 +11,12 @@
 	
 </head>
 	<style type="text/css">
+
 		body {
 			background-color: #F2F4EF;
+		}
+		#sidebarContent * {
+			color: #000;
 		}
 		.hideOverflow {
 			overflow: hidden;
@@ -68,9 +72,21 @@
 			width: calc(100vw - 210px) !important; 
 			
 		}
+		#githubButton {
+			position: absolute;
+			bottom: 30px;
+			left: 65px;
+			text-align: center;
+			color: rgba(255,255,255, 0.7);
+		}
+		#githubButton:hover {
+			color: grey;
+		}
 
 	</style>
 <body>
+
+
 	<!-- sidebar -->
 	<aside class="ui inverted left fixed vertical menu">
 		<div class="item header" style="padding-left:0px !important;">
@@ -111,8 +127,10 @@
 			<a id="defaultColor" class="ui basic inverted fluid button"> Reset to Default </a>
 		</div>
 		
-		
-
+		<a id="githubButton" href="https://github.com/sieteminerva/Semantic-UI-Color-Generator"> 
+			<i class="big github icon"></i>
+			<p>github page</p>
+		</a>
 	</aside>
 	
 
@@ -120,16 +138,19 @@
 		<div class="ui padded grid" style="height: calc(100vh - 4em) !important;margin-left: 210px !important;">
 			<div class="row">
 				<div class="litecream column">
-					<div class="ui container" style="padding: 2em 1em; overflow-y: scroll;">
+					<div class="ui container" style="padding: 2em 1em;">
 						<h3 class="ui dividing header">
 							Semantic-UI Color Generator
 							<div class="sub header">
 								Generating your new color class effortless!
 							</div>
 						</h3>
-						<pre>
-							
-						</pre>
+						<a class="ui right floating left labeled icon button"
+							 href="https://github.com/sieteminerva/Semantic-UI-Color-Generator">
+							<i class="github icon"></i>
+							Fork on Github
+						</a>
+						
 					</div>
 				</div>
 			</div>

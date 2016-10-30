@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $('.menu .item')
+      .tab()
+    ;
     $('#showDimmer')
         .dimmer({
           on: 'click',
