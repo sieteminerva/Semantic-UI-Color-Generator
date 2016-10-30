@@ -1,2 +1,5 @@
-#prepros config
-prepros.cfg
+# dependencies
+/node_modules
+
+# Prepros config
+./prepros.cfg
