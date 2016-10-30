@@ -181,7 +181,7 @@ in my case it's more easy for theming, without affecting the original version, a
 [colorcss]: ./dist/semantic.color.css
 [colorless]: ./src/semantic.color.less
 [menuGenerator]: ./src/generators/ui-colored-menu.generator.less
-[demo]: ./assets/images/generator_color.gif
+[demo]: ./docs/assets/images/generator_color.gif
 [generatorFolder]: ./src/generators/
 [demoSite]: https://sieteminerva.github.io/Semantic-UI-Color-Generator/
 [downloadZip]: https://github.com/sieteminerva/Semantic-UI-Color-Generator/archive/master.zip
