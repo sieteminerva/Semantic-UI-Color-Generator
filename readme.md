@@ -23,16 +23,20 @@ Generating your new color class for semantic-ui components **_effort-less!_**
 
 ##### Starting Up
 1. `$git clone https://github.com/sieteminerva/Semantic-UI-Color-Generator.git` or [download][downloadZip] the source code
-2. Define color and which component you want to be colored.
-3. Compile it, and include [semantic.color.css][colorcss] to your _index.html_.
+2. Define colors and components you want to generate in **[semantic.color.less][colorless]**
+3. Compile it to any place with any name you want.
+   in this case you can look the **./dist** folder named **[semantic.color.css][colorcss]** for compiled version
+4. include [semantic.color.css][colorcss] to your _index.html_.
+   also don't forget to include the semantic-ui library 
 
 ------------
 
 Have you tried the [demo][demosite] page? take a look at the **_custom color_** on the left menu section, there is six new color i created. I call it in _class_ as: **_flatgold, concrete, darkgreen, autumnbrown, darkblue, and litecream._** here is the generated [code][colorcss].
 
-Those custom colors now **_AutoMagically_** available for **_12 components._**
 
-> **Here is the List of Components:** 
+
+> Those custom colors now **_AutoMagically_** available for **_12 components._**
+**Here is the List of Components:** 
 **[grid](http://semantic-ui.com/collections/grid.html#colored)**, **[table](http://semantic-ui.com/collections/table.html#colored)**, **[segment](http://semantic-ui.com/elements/segment.html#colored)**, **[card](http://semantic-ui.com/views/card.html#colored)**, **[message](http://semantic-ui.com/collections/message.html#colored)**, **[progress](http://semantic-ui.com/modules/progress.html#color)**, **[menu](http://semantic-ui.com/collections/menu.html#colored)**, **[icon](http://semantic-ui.com/elements/icon.html#colored)**, **[header](http://semantic-ui.com/elements/header.html#colored)**, **[label](http://semantic-ui.com/elements/label.html#colored)**, **[button](http://semantic-ui.com/elements/button.html#colored)**, **[dimmer](http://semantic-ui.com/modules/dimmer.html)**. 
 
 
@@ -59,14 +63,13 @@ Those custom colors now **_AutoMagically_** available for **_12 components._**
 	          variation: 'red'
 	        });
 ```
-
-See the [official documentation](http://semantic-ui.com/) for **_detail example_** calling up the other components.
+I'm not covering how to use semantic-ui frameworks here. **_We just add a new additional color class_**, for **_detail example_** and further information how to use it, Please check **Semantic-UI** [Official Documentation](http://semantic-ui.com/).
 
 
 Done for the intro, now get straight to the **Interesting part**
 ![generator demo][demo]
 
->That custom color were created only by writing _(.less)_ code below 
+>Those custom color were created only by writing _(.less)_ code below 
 
 ```less
 	.GENERATE-UI-COLOR(flatgold, @flatgold);
@@ -76,7 +79,7 @@ Done for the intro, now get straight to the **Interesting part**
 	.GENERATE-UI-COLOR(darkblue, @darkblue);
 	.GENERATE-UI-COLOR(litecream, @liteCream);
 ```
->Of course i considering the need of generating color only for specific components, here to do that:
+>Of course i considering the need of generating color for specific components only, here to do that:
 
 ```less
 	/* generate colored button */
@@ -116,9 +119,21 @@ Done for the intro, now get straight to the **Interesting part**
 **What happen there?** that's pretty interesting question but i'm afraid i cannot clearly explain it to you.
 basically i just **_extract_** the original css **_selector_** for every components into a single component generator, i also took and redifining existing **_global variables_** into **_local variables_** specific for every components, so you can call it like that. global variable will still work here if you want it, just _import_ them!
 
-**Is it Customizable?** _No!! i'm kidding.._ Of course **it is!** find it at [/generators][generatorFolder] folder. 
-let say you open the [ui-colored-menu.generator.less][menuGenerator], take a look the code. every **variable** will be start with [@](http://lesscss.org/features/#variables-feature), customize it meet to your need! if you use this **original folder structure**, generator will **compile** your code to **[semantic.color.css][colorcss]**, and **use** **[semantic.color.less][colorless]** to define what color and component you want to generate. 
-if you **_look closer_** i also make a **variable for classes**, then i call it back using **interpolation syntax**. not only for coloring, **_with this recipe i think it will open possibilities for translating classes or other tweaks._**
+### How to Customize it
+1. Go to [/generators][generatorFolder] folder
+2. Open 1 of generator file available (*.less eq: [ui-colored-menu.generator.less][menuGenerator])
+3. Modify the variable.
+   every **variable** will be start with [@](http://lesscss.org/features/#variables-feature), customize it meet to your need!
+4. Repeat Steps [before](#starting-up)
+
+ 
+If you **_look closer_** i also make a **variable for classes**, then i call it back using **interpolation syntax**. not only for coloring, **_with this recipe i think it will open possibilities for translating classes, theming or other tweaks._**
+>**_for example:_** 
++ there is a variable called `@prefix: .ui;` modify it to `@prefix: .ui.yourThemeName;` 
++ customize the css property of the selected component, dont forget to put `!important` mark for overriding.
++ compile it. after that `.yourThemeName` class automatically added into your generated component. 
++ then use it in your HTML `<div class="ui yourThemeName red button"></div>`. <br>
+in my case it's more easy for theming, without affecting the original version, and when semantic-ui got updated your site still up and running! 
 
 --------
 ##### Known Bugs
@@ -163,10 +178,10 @@ if you **_look closer_** i also make a **variable for classes**, then i call it 
   ```
   > i'll fix this later, as soon as i have time. or you want to help? just let me know
 
-[colorcss]: ./semantic.color.css
-[colorless]: ./semantic.color.less
-[menuGenerator]: ./generators/ui-colored-menu.generator.less
-[demo]: ./showcase/assets/images/generator_color.gif
-[generatorFolder]: ./generators/
+[colorcss]: ./dist/semantic.color.css
+[colorless]: ./src/semantic.color.less
+[menuGenerator]: ./src/generators/ui-colored-menu.generator.less
+[demo]: ./assets/images/generator_color.gif
+[generatorFolder]: ./src/generators/
 [demoSite]: https://sieteminerva.github.io/Semantic-UI-Color-Generator/
 [downloadZip]: https://github.com/sieteminerva/Semantic-UI-Color-Generator/archive/master.zip
