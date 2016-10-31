@@ -11,7 +11,9 @@
 	
 </head>
 	<style type="text/css">
-
+		iframe {
+			height: calc(100vh - 10em);
+		}
 		body {
 			background-color: #F2F4EF;
 		}
@@ -82,6 +84,14 @@
 		#githubButton:hover {
 			color: grey;
 		}
+		.ui.menu.sharing.button {
+	        background: transparent !important;
+	        box-shadow: none !important;
+	        border-radius: 0 !important;
+	        border: none !important;
+	        margin-left: 210px; 
+
+      	}
 
 	</style>
 <body>
@@ -135,23 +145,18 @@
 	
 
 	<div id="sidebarContent" class="ui top sidebar" >
-		<div class="ui padded grid" style="height: calc(100vh - 4em) !important;margin-left: 210px !important;">
+		<div class="ui padded grid" style="height: calc(100vh - 4em) !important; margin-left: 210px !important; margin-right: 0px !important;">
 			<div class="row">
 				<div class="litecream column">
-					<div class="ui container" style="padding: 2em 1em;">
+					
 						<h3 class="ui dividing header">
 							Semantic-UI Color Generator
 							<div class="sub header">
 								Generating your new color class effortless!
 							</div>
 						</h3>
-						<a class="ui right floating left labeled icon button"
-							 href="https://github.com/sieteminerva/Semantic-UI-Color-Generator">
-							<i class="github icon"></i>
-							Fork on Github
-						</a>
+						<iframe src="docs/index.html" frameborder="0" border="0" width="100%" ></iframe>
 						
-					</div>
 				</div>
 			</div>
 		</div>
@@ -652,15 +657,49 @@
 			</div>
 		</div>
 	</main>
-	<footer class="ui centered grid" style="padding-left: 210px">
-		<div class="litecream row">
-			<div class="column">
-				<div class="ui grey center aligned header">
-					semantic-ui color generator
-				</div>
-			</div>
-		</div>
-	</footer>
+	<footer>
+	    <div class="ui centered padded grid">
+	        <div class="grey row">
+	        	
+		        <div class="ui menu sharing button borderless">
+		          <div class="item">
+		            <a class="ui right floating left labeled icon button"
+						 href="https://github.com/sieteminerva/Semantic-UI-Color-Generator">
+						<i class="github icon"></i>
+						Fork on Github
+					</a>
+		          </div>
+		          <div class="right menu">
+		            <div class="item">
+		              <a target="_blank" href="https://twitter.com/share?url={{WebsiteUrl}}&amp;text={{Semantic-UI%20Color%20Generator}}&amp;hashtags={{#sieteminerva}}" class="ui circular icon button twitter">
+		                <i class="twitter icon"></i>
+		              </a>
+		            </div>
+		            <div class="item">
+		              <a target="_blank" href="http://www.facebook.com/sharer.php?u={{WebsiteUrl}}" class="ui circular icon button facebook">
+		                <i class="facebook icon"></i>
+		              </a>
+		            </div>
+		            <div class="item">
+		              <a target="_blank" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinit.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" class="ui circular icon button pinterest">
+		                <i class="pinterest icon"></i>
+		              </a>
+		            </div> 
+		            <div class="item">
+		              <a target="_blank" href="https://plus.google.com/share?url={{WebsiteUrl}}" class="ui circular icon button google">
+		                <i class="google plus icon"></i>
+		              </a>
+		            </div> 
+		             <div class="item">
+		              <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{WebsiteUrl}}" class="ui circular icon button linkedin">
+		                <i class="linkedin icon"></i>
+		              </a>
+		            </div>  
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+	    </footer>
 	</div>
 
 	<script src="docs/assets/libs/script.js"></script>

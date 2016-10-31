@@ -1,0 +1,32 @@
+/* generate colored button */
+.GENERATE-COLORED-BUTTON(colorClass, @colorVariable);
+
+/* generate colored card */
+.GENERATE-COLORED-CARD(colorClass, @colorVariable);
+
+/* generate colored grid */
+.GENERATE-COLORED-GRID(colorClass, @colorVariable);
+
+/* generate colored segment */
+.GENERATE-COLORED-SEGMENT(colorClass, @colorVariable);
+
+/* generate colored header */
+.GENERATE-COLORED-HEADER(colorClass, @colorVariable);
+
+/* generate colored message */
+.GENERATE-COLORED-MESSAGE(colorClass, @colorVariable);
+
+/* generate colored icon */
+.GENERATE-COLORED-ICON(colorClass, @colorVariable);
+
+/* generate colored label */
+.GENERATE-COLORED-LABEL(colorClass, @colorVariable);
+
+/* generate colored dimmer */
+.GENERATE-COLORED-DIMMER(colorClass, @colorVariable);
+
+/* generate colored table */
+.GENERATE-COLORED-TABLE(colorClass, @colorVariable);
+
+/* generate colored menu */
+.GENERATE-COLORED-MENU(colorClass, @colorVariable);
